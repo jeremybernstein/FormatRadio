@@ -139,6 +139,7 @@ def exit(s):
     sys.exit(s)
 
 def convertFile(sourceFile, targetFile, overwrite):
+    # cmd = "ffmpeg -i '%s' %s -f wav -ac 1 -loglevel error -stats -ar 22050 -acodec pcm_s16le '%s'" % (
     cmd = "ffmpeg -i '%s' %s -f s16le -ac 1 -loglevel error -stats -ar 44100 -acodec pcm_s16le '%s'" % (
         sourceFile,
         '-y' if overwrite else '',
